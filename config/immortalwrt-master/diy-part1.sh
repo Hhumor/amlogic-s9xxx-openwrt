@@ -13,17 +13,3 @@
 # rm -rf package/emortal/{autosamba,ipv6-helper}
 
 
-#去除nginx的ssl
-cat << EOF > /etc/config/nginx
-config main global
-        option uci_enable 'true'
-
-config server '_lan'
-        list listen '80'
-        list listen '[::]:80'
-        option server_name '_lan'
-        list include 'restrict_locally'
-        list include 'conf.d/*.locations'
-        option access_log 'off; # logd openwrt'
-EOF
-
