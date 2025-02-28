@@ -37,7 +37,7 @@ git clone https://github.com/asvow/luci-app-tailscale package/luci-app-tailscale
 PKG_PATH="$GITHUB_WORKSPACE/openwrt/package/"
 
 #修复TailScale配置文件冲突
-TS_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/tailscale/Makefile")
+TS_FILE=$(find ./feeds/packages/ -maxdepth 3 -type f -wholename "*/tailscale/Makefile")
 if [ -f "$TS_FILE" ]; then
         sed -i '/\/files/d' $TS_FILE
 
@@ -45,7 +45,7 @@ if [ -f "$TS_FILE" ]; then
 fi
 
 #修复Coremark编译失败
-CM_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/coremark/Makefile")
+CM_FILE=$(find ./feeds/packages/ -maxdepth 3 -type f -wholename "*/coremark/Makefile")
 if [ -f "$CM_FILE" ]; then
         sed -i 's/mkdir/mkdir -p/g' $CM_FILE
 
@@ -53,13 +53,9 @@ if [ -f "$CM_FILE" ]; then
 fi
 
 #修复libffi编译失败
-LF_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/libffi/Makefile")
+LF_FILE=$(find ./feeds/packages/ -maxdepth 3 -type f -wholename "*/libffi/Makefile")
 if [ -f "$LF_FILE" ]; then
         sed -i '/\/autoreconf/d' $LF_FILE
 
         cd $PKG_PATH && echo "libffi has been fixed!"
-<<<<<<< Updated upstream
 fi
-=======
-fi
->>>>>>> Stashed changes
