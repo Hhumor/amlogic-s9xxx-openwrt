@@ -7175,7 +7175,7 @@ CONFIG_PACKAGE_chat=y
 # CONFIG_PACKAGE_ds-lite is not set
 # CONFIG_PACKAGE_esniper is not set
 # CONFIG_PACKAGE_esp2net is not set
-CONFIG_PACKAGE_etherwake=y
+# CONFIG_PACKAGE_etherwake is not set
 # CONFIG_PACKAGE_etherwake-nfqueue is not set
 CONFIG_PACKAGE_ethtool=y
 # CONFIG_PACKAGE_ethtool-full is not set
